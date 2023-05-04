@@ -18,7 +18,11 @@
     <RadioGroup
         android:id="@+id/east"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/player0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/new_game">
 
     </RadioGroup>
 
@@ -26,6 +30,7 @@
         android:id="@+id/new_game"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
         android:text="Neues Spiel"
         app:layout_constraintBottom_toTopOf="@+id/player0"
         app:layout_constraintEnd_toEndOf="parent"
@@ -50,6 +55,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="text"
+            android:minHeight="48dp"
             android:text="Spieler 4" />
 
         <RadioButton
@@ -75,6 +81,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="text"
+            android:minHeight="48dp"
             android:text="Spieler 3" />
 
         <RadioButton
@@ -87,11 +94,12 @@
         android:id="@+id/player0"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="105dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="228dp">
+        app:layout_constraintTop_toBottomOf="@+id/new_game">
 
         <EditText
             android:id="@+id/name0"
@@ -99,6 +107,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="text"
+            android:minHeight="48dp"
             android:text="Spieler 1" />
 
         <RadioButton
@@ -124,6 +133,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="text"
+            android:minHeight="48dp"
             android:text="Spieler 2" />
 
         <RadioButton
@@ -137,8 +147,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="dynmasicher error"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="532dp" />
+        app:layout_constraintTop_toBottomOf="@+id/player3" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
