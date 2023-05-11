@@ -61,7 +61,8 @@
         <RadioButton
             android:id="@+id/east3"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:minWidth="0dp" />
     </LinearLayout>
 
     <LinearLayout
@@ -87,7 +88,8 @@
         <RadioButton
             android:id="@+id/east2"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:minWidth="0dp" />
     </LinearLayout>
 
     <LinearLayout
@@ -113,7 +115,8 @@
         <RadioButton
             android:id="@+id/east0"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:minWidth="0dp" />
     </LinearLayout>
 
     <LinearLayout
@@ -139,7 +142,8 @@
         <RadioButton
             android:id="@+id/east1"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:minWidth="0dp" />
     </LinearLayout>
 
     <TextView
