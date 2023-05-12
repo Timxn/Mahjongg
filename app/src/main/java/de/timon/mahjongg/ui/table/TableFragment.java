@@ -1,4 +1,4 @@
-package de.timon.mahjongg.ui.home;
+package de.timon.mahjongg.ui.table;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,22 +10,20 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import de.timon.mahjongg.databinding.FragmentHomeBinding;
+import de.timon.mahjongg.databinding.FragmentTableBinding;
 
-public class HomeFragment extends Fragment {
+public class TableFragment extends Fragment {
 
-    private FragmentHomeBinding binding;
+    private FragmentTableBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        HomeViewModel homeViewModel =
-                new ViewModelProvider(this).get(HomeViewModel.class);
+        TableViewModel tableViewModel =
+                new ViewModelProvider(this).get(TableViewModel.class);
 
-        binding = FragmentHomeBinding.inflate(inflater, container, false);
+        binding = FragmentTableBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textHome;
-        homeViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }
 

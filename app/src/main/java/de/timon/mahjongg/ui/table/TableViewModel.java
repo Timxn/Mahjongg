@@ -1,16 +1,16 @@
-package de.timon.mahjongg.ui.dashboard;
+package de.timon.mahjongg.ui.table;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class DashboardViewModel extends ViewModel {
+public class TableViewModel extends ViewModel {
 
     private final MutableLiveData<String> mText;
 
-    public DashboardViewModel() {
+    public TableViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is dashboard fragment");
+        mText.setValue("This is table fragment");
     }
 
     public LiveData<String> getText() {

@@ -2,29 +2,9 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/inputNamesLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
-    <Button
-        android:id="@+id/start_game"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Spiel starten"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/error" />
-
-    <RadioGroup
-        android:id="@+id/east"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/player0"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/new_game">
-
-    </RadioGroup>
 
     <TextView
         android:id="@+id/new_game"
@@ -32,128 +12,144 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:text="Neues Spiel"
-        app:layout_constraintBottom_toTopOf="@+id/player0"
+        app:layout_constraintBottom_toTopOf="@+id/playerData"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <LinearLayout
-        android:id="@+id/player3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/player2">
-
-        <EditText
-            android:id="@+id/name3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="text"
-            android:minHeight="48dp"
-            android:text="Spieler 4" />
-
-        <RadioButton
-            android:id="@+id/east3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:minWidth="0dp" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/player2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/player1">
-
-        <EditText
-            android:id="@+id/name2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="text"
-            android:minHeight="48dp"
-            android:text="Spieler 3" />
-
-        <RadioButton
-            android:id="@+id/east2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:minWidth="0dp" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/player0"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="105dp"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/new_game">
-
-        <EditText
-            android:id="@+id/name0"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="text"
-            android:minHeight="48dp"
-            android:text="Spieler 1" />
-
-        <RadioButton
-            android:id="@+id/east0"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:minWidth="0dp" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/player1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/player0">
-
-        <EditText
-            android:id="@+id/name1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="text"
-            android:minHeight="48dp"
-            android:text="Spieler 2" />
-
-        <RadioButton
-            android:id="@+id/east1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:minWidth="0dp" />
-    </LinearLayout>
-
     <TextView
         android:id="@+id/error"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:text="dynmasicher error"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/playerData" />
+
+    <LinearLayout
+        android:id="@+id/playerData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/bottomLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/player3" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:id="@+id/names"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/name0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="text"
+                android:minHeight="48dp"
+                android:hint="Spieler 1"
+                android:text=""
+                android:importantForAutofill="no" />
+
+            <EditText
+                android:id="@+id/name1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="text"
+                android:minHeight="48dp"
+                android:hint="Spieler 2"
+                android:text=""
+                android:importantForAutofill="no" />
+
+            <EditText
+                android:id="@+id/name2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="text"
+                android:minHeight="48dp"
+                android:hint="Spieler 3"
+                android:text=""
+                android:importantForAutofill="no" />
+
+            <EditText
+                android:id="@+id/name3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="text"
+                android:minHeight="48dp"
+                android:hint="Spieler 4"
+                android:text=""
+                android:importantForAutofill="no" />
+
+        </LinearLayout>
+
+        <RadioGroup
+            android:id="@+id/east"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <RadioButton
+                android:id="@+id/east0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minWidth="0dp"
+                tools:ignore="TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
+
+            <RadioButton
+                android:id="@+id/east1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minWidth="0dp"
+                tools:ignore="TouchTargetSizeCheck" />
+
+            <RadioButton
+                android:id="@+id/east2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minWidth="0dp"
+                tools:ignore="TouchTargetSizeCheck" />
+
+            <RadioButton
+                android:id="@+id/east3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minWidth="0dp"
+                tools:ignore="TouchTargetSizeCheck" />
+
+        </RadioGroup>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/bottomLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="100dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <Button
+            android:id="@+id/startGame"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Spiel starten" />
+
+        <ImageButton
+            android:id="@+id/exitInput"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="Eingabe verlassen"
+            app:srcCompat="@android:drawable/ic_menu_revert" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -3,19 +3,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_home">
+    app:startDestination="@+id/navigation_score">
 
     <fragment
-        android:id="@+id/navigation_home"
-        android:name="de.timon.mahjongg.ui.home.HomeFragment"
-        android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        android:id="@+id/navigation_score"
+        android:name="de.timon.mahjongg.ui.score.ScoreFragment"
+        android:label="@string/title_score"
+        tools:layout="@layout/fragment_score" />
 
     <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="de.timon.mahjongg.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        android:id="@+id/navigation_table"
+        android:name="de.timon.mahjongg.ui.table.TableFragment"
+        android:label="@string/title_table"
+        tools:layout="@layout/fragment_table" />
 
     <fragment
         android:id="@+id/navigation_history"
