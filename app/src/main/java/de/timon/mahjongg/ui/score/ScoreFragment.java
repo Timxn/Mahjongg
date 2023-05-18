@@ -30,19 +30,13 @@ public class ScoreFragment extends Fragment {
                 break;
             case NEWGAME:
                 binding.newGameLayout.getRoot().setVisibility(View.VISIBLE);
-                binding.newGameLayout.createGame.setOnClickListener(v -> {
-                    binding.newGameLayout.getRoot().setVisibility(View.GONE);
-                    inputNamesSetup();
-                    scoreViewModel.view = ScoreViewModel.View.INPUTNAMES;
-                });
-
-                binding.newGameLayout.loadGame.setEnabled(false); //deactivated for now
-                binding.newGameLayout.loadGame.setOnClickListener(v -> {
-                    //TODO: code to load a saved game
-                });
+                bindButtons();
                 break;
             case INPUTNAMES:
-                inputNamesSetup();
+                binding.inputNamesLayout.getRoot().setVisibility(View.VISIBLE);
+                bindButtons();
+                fixInputFields();
+                checkInputs();
                 break;
         }
 
@@ -129,11 +123,19 @@ public class ScoreFragment extends Fragment {
         binding.inputNamesLayout.east.setOnCheckedChangeListener((group, checkedId) -> textWatcher.onTextChanged(null, 0, 0, 0));
     }
 
-    private void inputNamesSetup() {
-        binding.inputNamesLayout.getRoot().setVisibility(View.VISIBLE);
+    private void bindButtons() {
+        binding.newGameLayout.createGame.setOnClickListener(v -> {
+            binding.newGameLayout.getRoot().setVisibility(View.GONE);
+            fixInputFields();
+            checkInputs();
+            binding.inputNamesLayout.getRoot().setVisibility(View.VISIBLE);
+            scoreViewModel.view = ScoreViewModel.View.INPUTNAMES;
+        });
 
-        fixButtons();
-        checkInputs();
+        binding.newGameLayout.loadGame.setEnabled(false); //deactivated for now
+        binding.newGameLayout.loadGame.setOnClickListener(v -> {
+            //TODO: code to load a saved game
+        });
 
         binding.inputNamesLayout.startGame.setOnClickListener(v1 -> {
             //scoreViewModel.gameInProgress = true;
@@ -160,7 +162,7 @@ public class ScoreFragment extends Fragment {
         });
     }
 
-    private void fixButtons() {
+    private void fixInputFields() {
         if (scoreViewModel.tempValue == 1) {
             binding.inputNamesLayout.name3.setEnabled(true);
             binding.inputNamesLayout.east3.setEnabled(true);
