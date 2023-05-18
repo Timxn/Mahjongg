@@ -10,9 +10,8 @@
         android:id="@+id/new_game"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
         android:text="Neues Spiel"
-        app:layout_constraintBottom_toTopOf="@+id/playerData"
+        android:textSize="48dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
@@ -23,7 +22,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="dynmasicher error"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
@@ -33,8 +31,8 @@
         android:id="@+id/playerData"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@+id/bottomLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -50,44 +48,45 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="10"
+                android:hint="Spieler 1"
+                android:importantForAutofill="no"
                 android:inputType="text"
                 android:minHeight="48dp"
-                android:hint="Spieler 1"
-                android:text=""
-                android:importantForAutofill="no" />
+                android:text="" />
 
             <EditText
                 android:id="@+id/name1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="10"
+                android:hint="Spieler 2"
+                android:importantForAutofill="no"
                 android:inputType="text"
                 android:minHeight="48dp"
-                android:hint="Spieler 2"
-                android:text=""
-                android:importantForAutofill="no" />
+                android:text="" />
 
             <EditText
                 android:id="@+id/name2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="10"
+                android:hint="Spieler 3"
+                android:importantForAutofill="no"
                 android:inputType="text"
                 android:minHeight="48dp"
-                android:hint="Spieler 3"
-                android:text=""
-                android:importantForAutofill="no" />
+                android:text="" />
 
             <EditText
                 android:id="@+id/name3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="10"
+                android:enabled="false"
+                android:hint="Spieler 4"
+                android:importantForAutofill="no"
                 android:inputType="text"
                 android:minHeight="48dp"
-                android:hint="Spieler 4"
-                android:text=""
-                android:importantForAutofill="no" />
+                android:text="" />
 
         </LinearLayout>
 
@@ -121,6 +120,7 @@
                 android:id="@+id/east3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:enabled="false"
                 android:minWidth="0dp"
                 tools:ignore="TouchTargetSizeCheck" />
 
@@ -142,6 +142,7 @@
             android:id="@+id/startGame"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:enabled="false"
             android:text="Spiel starten" />
 
         <ImageButton
