@@ -6,7 +6,6 @@ import androidx.lifecycle.ViewModel;
 
 public class ScoreViewModel extends ViewModel {
 
-    public boolean gameInProgress = false;
     public String[] names = new String[4];
     public int east = -1;
     public int currentRound = 0;

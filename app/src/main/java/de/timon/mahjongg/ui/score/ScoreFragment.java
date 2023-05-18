@@ -24,44 +24,27 @@ public class ScoreFragment extends Fragment {
         binding = FragmentScoreBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        if (!scoreViewModel.gameInProgress) {
-            binding.newGameLayout.getRoot().setVisibility(View.VISIBLE);
-            binding.newGameLayout.createGame.setOnClickListener(v -> {
-                binding.newGameLayout.getRoot().setVisibility(View.GONE);
-                binding.inputNamesLayout.getRoot().setVisibility(View.VISIBLE);
-
-                fixButtons();
-                checkInputs();
-
-                binding.inputNamesLayout.startGame.setOnClickListener(v1 -> {
-                    scoreViewModel.gameInProgress = true;
-                    scoreViewModel.names[0] = binding.inputNamesLayout.name0.getText().toString();
-                    scoreViewModel.names[1] = binding.inputNamesLayout.name1.getText().toString();
-                    scoreViewModel.names[2] = binding.inputNamesLayout.name2.getText().toString();
-                    if (binding.inputNamesLayout.name3.getText().toString().equals(""))
-                        scoreViewModel.playerCount = 3;
-                    else
-                        scoreViewModel.names[3] = binding.inputNamesLayout.name3.getText().toString();
-                    scoreViewModel.east = binding.inputNamesLayout.east.getCheckedRadioButtonId();
-
-                    binding.inputNamesLayout.getRoot().setVisibility(View.GONE);
-                    binding.ingameLayout.getRoot().setVisibility(View.VISIBLE);
+        switch (scoreViewModel.view) {
+            case INGAME:
+                binding.ingameLayout.getRoot().setVisibility(View.VISIBLE);
+                break;
+            case NEWGAME:
+                binding.newGameLayout.getRoot().setVisibility(View.VISIBLE);
+                binding.newGameLayout.createGame.setOnClickListener(v -> {
+                    binding.newGameLayout.getRoot().setVisibility(View.GONE);
+                    inputNamesSetup();
+                    scoreViewModel.view = ScoreViewModel.View.INPUTNAMES;
                 });
 
-                binding.inputNamesLayout.exitInput.setOnClickListener(v1 -> {
-                    binding.inputNamesLayout.getRoot().setVisibility(View.GONE);
-                    binding.newGameLayout.getRoot().setVisibility(View.VISIBLE);
+                binding.newGameLayout.loadGame.setEnabled(false); //deactivated for now
+                binding.newGameLayout.loadGame.setOnClickListener(v -> {
+                    //TODO: code to load a saved game
                 });
-            });
-
-            binding.newGameLayout.loadGame.setEnabled(false); //deactivated for now
-            binding.newGameLayout.loadGame.setOnClickListener(v -> {
-                //TODO: code to load a saved game
-            });
-        } else {
-            binding.newGameLayout.getRoot().setVisibility(View.GONE);
+                break;
+            case INPUTNAMES:
+                inputNamesSetup();
+                break;
         }
-
 
         return root;
     }
@@ -144,6 +127,37 @@ public class ScoreFragment extends Fragment {
         binding.inputNamesLayout.name2.addTextChangedListener(textWatcher);
         binding.inputNamesLayout.name3.addTextChangedListener(textWatcher);
         binding.inputNamesLayout.east.setOnCheckedChangeListener((group, checkedId) -> textWatcher.onTextChanged(null, 0, 0, 0));
+    }
+
+    private void inputNamesSetup() {
+        binding.inputNamesLayout.getRoot().setVisibility(View.VISIBLE);
+
+        fixButtons();
+        checkInputs();
+
+        binding.inputNamesLayout.startGame.setOnClickListener(v1 -> {
+            //scoreViewModel.gameInProgress = true;
+            scoreViewModel.names[0] = binding.inputNamesLayout.name0.getText().toString();
+            scoreViewModel.names[1] = binding.inputNamesLayout.name1.getText().toString();
+            scoreViewModel.names[2] = binding.inputNamesLayout.name2.getText().toString();
+            if (binding.inputNamesLayout.name3.getText().toString().equals("")) {
+                scoreViewModel.playerCount = 3;
+            }
+            else {
+                scoreViewModel.names[3] = binding.inputNamesLayout.name3.getText().toString();
+            }
+            scoreViewModel.east = binding.inputNamesLayout.east.getCheckedRadioButtonId();
+
+            binding.inputNamesLayout.getRoot().setVisibility(View.GONE);
+            binding.ingameLayout.getRoot().setVisibility(View.VISIBLE);
+            scoreViewModel.view = ScoreViewModel.View.INGAME;
+        });
+
+        binding.inputNamesLayout.exitInput.setOnClickListener(v1 -> {
+            binding.inputNamesLayout.getRoot().setVisibility(View.GONE);
+            binding.newGameLayout.getRoot().setVisibility(View.VISIBLE);
+            scoreViewModel.view = ScoreViewModel.View.NEWGAME;
+        });
     }
 
     private void fixButtons() {
