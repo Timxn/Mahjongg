@@ -12,7 +12,7 @@ public class ScoreViewModel extends ViewModel {
     public int currentRound = 0;
     public int playerCount = 4;
     public int [] [] scores = new int[4][2];
-    public boolean tempValue = false;
+    public int tempValue = 0;
     public View view = View.NEWGAME;
 
     protected enum View {
