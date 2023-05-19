@@ -17,4 +17,9 @@
         layout="@layout/input_names"
         android:visibility="gone"/>
 
+    <include
+        android:id="@+id/ingameLayout"
+        layout="@layout/ingame"
+        android:visibility="gone"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
