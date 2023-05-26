@@ -4,8 +4,10 @@ public class Utils {
     public static String addPlusSign(int number) {
         if (number > 0) {
             return "+" + number;
+        } else if (number == 0) {
+            return "=" + number;
         } else {
-            return String.valueOf(number);
+            return " " + number;
         }
     }
 
