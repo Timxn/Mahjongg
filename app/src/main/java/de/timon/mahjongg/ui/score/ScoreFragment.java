@@ -87,10 +87,8 @@ public class ScoreFragment extends Fragment {
                 if (isEmptyName0 || isEmptyName1 || isEmptyName2) {
                     binding.inputNamesLayout.name3.setEnabled(false);
                     binding.inputNamesLayout.east3.setEnabled(false);
-                    scoreViewModel.tempValue = 0;
                 } else {
                     binding.inputNamesLayout.name3.setEnabled(true);
-                    scoreViewModel.tempValue = 2;
                 }
                 if (isEmptyName3) {
                     binding.inputNamesLayout.east3.setEnabled(false);
@@ -98,11 +96,9 @@ public class ScoreFragment extends Fragment {
                     deselectEast();
                 } else {
                     binding.inputNamesLayout.east3.setEnabled(true);
-                    scoreViewModel.tempValue = 3;
                 }
                 if (!isEmptyName0 && !isEmptyName1 && !isEmptyName2 && isEastSelected) {
                     binding.inputNamesLayout.startGame.setEnabled(true);
-                    scoreViewModel.tempValue = 1;
                 } else {
                     binding.inputNamesLayout.startGame.setEnabled(false);
                 }
@@ -163,16 +159,11 @@ public class ScoreFragment extends Fragment {
     }
 
     private void fixInputFields() {
-        if (scoreViewModel.tempValue == 1) {
-            binding.inputNamesLayout.name3.setEnabled(true);
-            binding.inputNamesLayout.east3.setEnabled(true);
-            binding.inputNamesLayout.startGame.setEnabled(true);
-        } else if (scoreViewModel.tempValue == 2) {
-            binding.inputNamesLayout.name3.setEnabled(true);
-        } else if (scoreViewModel.tempValue == 3) {
-            binding.inputNamesLayout.name3.setEnabled(true);
-            binding.inputNamesLayout.east3.setEnabled(true);
-        }
+        binding.inputNamesLayout.east.clearCheck();
+        binding.inputNamesLayout.name0.setText("");
+        binding.inputNamesLayout.name1.setText("");
+        binding.inputNamesLayout.name2.setText("");
+        binding.inputNamesLayout.name3.setText("");
     }
 
     @Override
