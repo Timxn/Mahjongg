@@ -56,7 +56,19 @@ public class ScoreViewModel extends ViewModel {
             }
         }
 
-        //TODO: berechne andere punktevergabe
+        for (int i = 0; i < ApplicationGlobals.playerCount; i++) {
+            for (int j = 0; j < ApplicationGlobals.playerCount; j++) {
+                if (i != mahjongg && j != mahjongg && i != j) {
+                    int x = points[i] - points[j];
+                    if (x > 0) {
+                        if (i == east || j == east)
+                            x = x * 2;
+                        scores[i][0] += x;
+                        scores[j][0] -= x;
+                    }
+                }
+            }
+        }
 
         for (int i = 0; i < ApplicationGlobals.playerCount; i++)
             scores[i][1] = scores[i][0] - pre[i];
